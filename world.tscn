@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cae72cvsbwumh"]
+
+[ext_resource type="Texture2D" uid="uid://4f53opkqns45" path="res://grass_bass.png" id="1_njj2l"]
+[ext_resource type="PackedScene" uid="uid://0swq8evanvan" path="res://business_goblin.tscn" id="2_5tql4"]
+
+[node name="World" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(320, 180)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_njj2l")
+stretch_mode = 1
+
+[node name="BusinessGoblin" parent="." instance=ExtResource("2_5tql4")]
+position = Vector2(189, 94)

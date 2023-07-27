@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://0swq8evanvan"]
+
+[ext_resource type="Texture2D" uid="uid://dfuxpogk8v43e" path="res://business_gobliman.png" id="1_e8yaw"]
+[ext_resource type="Script" path="res://business_goblin.gd" id="1_hrd8v"]
+[ext_resource type="Texture2D" uid="uid://c4j8l4dcs4tju" path="res://shadow.png" id="2_y0vw3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvdyw"]
+atlas = ExtResource("1_e8yaw")
+region = Rect2(0, 0, 18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3o3v"]
+atlas = ExtResource("1_e8yaw")
+region = Rect2(18, 0, 18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u4wh"]
+atlas = ExtResource("1_e8yaw")
+region = Rect2(36, 0, 18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx7om"]
+atlas = ExtResource("1_e8yaw")
+region = Rect2(54, 0, 18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb80a"]
+atlas = ExtResource("1_e8yaw")
+region = Rect2(72, 0, 18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uds0"]
+atlas = ExtResource("1_e8yaw")
+region = Rect2(90, 0, 18, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tt0s6"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvdyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3o3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u4wh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx7om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qb80a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uds0")
+}],
+"loop": true,
+"name": &"move",
+"speed": 8.0
+}]
+
+[node name="BusinessGoblin" type="CharacterBody2D"]
+script = ExtResource("1_hrd8v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_tt0s6")
+animation = &"move"
+autoplay = "move"
+offset = Vector2(1, -1)
+
+[node name="ShadowSprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+show_behind_parent = true
+position = Vector2(0, 1)
+scale = Vector2(0.8, 1)
+texture = ExtResource("2_y0vw3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-3, 0, 0, -3, 3, 0, 0, 3)
