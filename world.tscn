@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cae72cvsbwumh"]
+[gd_scene load_steps=4 format=3 uid="uid://cae72cvsbwumh"]
 
 [ext_resource type="Texture2D" uid="uid://4f53opkqns45" path="res://grass_bass.png" id="1_njj2l"]
 [ext_resource type="PackedScene" uid="uid://0swq8evanvan" path="res://business_goblin.tscn" id="2_5tql4"]
+[ext_resource type="PackedScene" uid="uid://blp23h3gehyqm" path="res://block_tile_map.tscn" id="3_riu2l"]
 
 [node name="World" type="Node2D"]
 
@@ -14,3 +15,6 @@ stretch_mode = 1
 
 [node name="BusinessGoblin" parent="." instance=ExtResource("2_5tql4")]
 position = Vector2(189, 94)
+
+[node name="BlockTileMap" parent="." instance=ExtResource("3_riu2l")]
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, 589824, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 589843, 0, 0, 524307, 0, 0, 458771, 0, 0, 393235, 0, 0, 327699, 0, 0, 262163, 0, 0, 196627, 0, 0, 131091, 0, 0, 65555, 0, 0, 65554, 0, 0, 18, 0, 0, 19, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 196610, 0, 0, 131074, 0, 0, 65538, 0, 0, 262150, 0, 0, 327686, 0, 0, 393222, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 196622, 0, 0, 262158, 0, 0, 589825, 0, 0, 589842, 0, 0)

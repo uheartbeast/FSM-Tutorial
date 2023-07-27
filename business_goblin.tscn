@@ -30,7 +30,10 @@ region = Rect2(90, 0, 18, 17)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tt0s6"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvdyw")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
@@ -65,8 +68,8 @@ script = ExtResource("1_hrd8v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_tt0s6")
-animation = &"move"
-autoplay = "move"
+animation = &"idle"
+autoplay = "idle"
 offset = Vector2(1, -1)
 
 [node name="ShadowSprite2D" type="Sprite2D" parent="."]
