@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://blp23h3gehyqm" path="res://block_tile_map.tscn" id="3_riu2l"]
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(320, 180)

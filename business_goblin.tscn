@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://0swq8evanvan"]
+[gd_scene load_steps=14 format=3 uid="uid://0swq8evanvan"]
 
 [ext_resource type="Texture2D" uid="uid://dfuxpogk8v43e" path="res://business_gobliman.png" id="1_e8yaw"]
 [ext_resource type="Script" path="res://business_goblin.gd" id="1_hrd8v"]
 [ext_resource type="Texture2D" uid="uid://c4j8l4dcs4tju" path="res://shadow.png" id="2_y0vw3"]
+[ext_resource type="Script" path="res://finite_state_machine.gd" id="4_dbcne"]
+[ext_resource type="Script" path="res://enemy_wander_state.gd" id="5_wbv3n"]
+[ext_resource type="Script" path="res://enemy_chase_state.gd" id="6_3aafu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvdyw"]
 atlas = ExtResource("1_e8yaw")
@@ -64,6 +67,7 @@ animations = [{
 
 [node name="BusinessGoblin" type="CharacterBody2D"]
 script = ExtResource("1_hrd8v")
+acceleration = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
@@ -81,3 +85,23 @@ texture = ExtResource("2_y0vw3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-3, 0, 0, -3, 3, 0, 0, 3)
+
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
+script = ExtResource("4_dbcne")
+state = NodePath("EnemyWanderState")
+
+[node name="EnemyWanderState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("actor", "animator", "vision_cast")]
+script = ExtResource("5_wbv3n")
+actor = NodePath("../..")
+animator = NodePath("../../AnimatedSprite2D")
+vision_cast = NodePath("../../RayCast2D")
+
+[node name="EnemyChaseState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("actor", "animator", "vision_cast")]
+script = ExtResource("6_3aafu")
+actor = NodePath("../..")
+animator = NodePath("../../AnimatedSprite2D")
+vision_cast = NodePath("../../RayCast2D")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -4)
+target_position = Vector2(0, 16)
